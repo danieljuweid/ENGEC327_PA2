@@ -41,6 +41,9 @@ int main()
     char Q; 
     char q; 
     char code;
+    double first; 
+    double last; 
+    double delta; 
     int input1; //Used in sub-functions many times
     double input2; //Used in sub-functions many times 
     bool exit = false;
@@ -54,6 +57,7 @@ int main()
         if (checkCode(code) == false)
         {
             cout << "Invalid Command Code" << endl;
+            break;
         }
         else if (code == 'Q' || code == 'q') //Case q and Q to quit 
         {
@@ -103,8 +107,13 @@ int main()
                 cout << naturalLog(input2) << endl;
                 break;
              case 'y': case 'Y':
-                cin >> input2;
-                cout << findNyanCatValue(input2) << endl;
+                cin >> first;
+                cin >> last;
+                cin >> delta;
+                for(i = first; i < last; i = i + delta){
+                    cout << findNyanCatValue(i) << endl;
+                }
+                
                 break;
              case 'd': case 'D':
                 cin >> input1;
@@ -125,4 +134,3 @@ int main()
     } while (exit == false);
     return 0;
 }
-
